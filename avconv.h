@@ -51,6 +51,7 @@
 enum HWAccelID {
     HWACCEL_NONE = 0,
     HWACCEL_AUTO,
+    HWACCEL_CUVID,
     HWACCEL_VDPAU,
     HWACCEL_DXVA2,
     HWACCEL_VDA,
@@ -497,6 +498,8 @@ int ifilter_parameters_from_frame(InputFilter *ifilter, const AVFrame *frame);
 
 int avconv_parse_options(int argc, char **argv);
 
+int cuvid_init(AVCodecContext *s);
+int cuvid_transcode_init(OutputStream *ost);
 int vdpau_init(AVCodecContext *s);
 int dxva2_init(AVCodecContext *s);
 int vda_init(AVCodecContext *s);

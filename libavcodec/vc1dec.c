@@ -957,6 +957,9 @@ err:
 
 
 static const enum AVPixelFormat vc1_hwaccel_pixfmt_list_420[] = {
+#if CONFIG_VC1_CUVID_HWACCEL
+    AV_PIX_FMT_CUDA,
+#endif
 #if CONFIG_VC1_DXVA2_HWACCEL
     AV_PIX_FMT_DXVA2_VLD,
 #endif

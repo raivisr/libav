@@ -1130,6 +1130,9 @@ static const enum AVPixelFormat pixfmt_xvmc_mpg2_420[] = {
 #endif /* FF_API_XVMC */
 
 static const enum AVPixelFormat mpeg12_hwaccel_pixfmt_list_420[] = {
+#if CONFIG_MPEG1_CUVID_HWACCEL | CONFIG_MPEG2_CUVID_HWACCEL
+    AV_PIX_FMT_CUDA,
+#endif
 #if CONFIG_MPEG2_DXVA2_HWACCEL
     AV_PIX_FMT_DXVA2_VLD,
 #endif

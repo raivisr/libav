@@ -654,6 +654,9 @@ intrax8_decoded:
 }
 
 const enum AVPixelFormat ff_h263_hwaccel_pixfmt_list_420[] = {
+#if CONFIG_MPEG4_CUVID_HWACCEL
+    AV_PIX_FMT_CUDA,
+#endif
 #if CONFIG_H263_VAAPI_HWACCEL || CONFIG_MPEG4_VAAPI_HWACCEL
     AV_PIX_FMT_VAAPI,
 #endif

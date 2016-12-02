@@ -82,6 +82,7 @@ ALLAVPROGS  = $(AVBASENAMES:%=%$(EXESUF))
 $(foreach prog,$(AVBASENAMES),$(eval OBJS-$(prog) += cmdutils.o))
 
 OBJS-avconv                   += avconv_opt.o avconv_filter.o
+OBJS-avconv-$(CONFIG_CUVID)   += avconv_cuvid.o
 OBJS-avconv-$(CONFIG_LIBMFX)  += avconv_qsv.o
 OBJS-avconv-$(CONFIG_VAAPI)   += avconv_vaapi.o
 OBJS-avconv-$(CONFIG_VDA)     += avconv_vda.o
