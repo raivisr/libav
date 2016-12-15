@@ -362,7 +362,7 @@ static int cuvid_output_frame(AVCodecContext *avctx, AVFrame *frame)
             goto error;
 
         if (avctx->pix_fmt == AV_PIX_FMT_CUDA) {
-            ret = ff_get_buffer(avctx, frame, 0);
+            ret = av_hwframe_get_buffer(ctx->hwframe, frame, 0);
             if (ret < 0) {
                 av_log(avctx, AV_LOG_ERROR, "av_hwframe_get_buffer failed\n");
                 goto error;
