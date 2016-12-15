@@ -69,15 +69,6 @@ int cuvid_transcode_init(OutputStream *ost)
 
     ist = input_streams[ost->source_index];
 
-    /* check if the encoder supports CUVID */
-    if (!ost->enc->pix_fmts)
-        goto cancel;
-    for (pix_fmt = ost->enc->pix_fmts; *pix_fmt != AV_PIX_FMT_NONE; pix_fmt++)
-        if (*pix_fmt == AV_PIX_FMT_CUDA)
-            break;
-    if (*pix_fmt == AV_PIX_FMT_NONE)
-        goto cancel;
-
     /* check if the decoder supports CUVID */
     if (ist->hwaccel_id != HWACCEL_CUVID || !ist->dec || !ist->dec->pix_fmts)
         goto cancel;
